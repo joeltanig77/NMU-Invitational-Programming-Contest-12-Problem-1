@@ -8,14 +8,14 @@ def main():
         backSpace = "\b"
         alignmentForUpDown = ""
 
-        rings = int(input("Enter the number of rings you would like "))
+        rings = int(input("Rings: "))
 
-        #Base Cases
+        # Base Cases
         if rings < 0:
             print("The number of rings has to be greater than zero")
             exit(-1)
 
-        coreSize = int(input("Enter the number of cores you would like "))
+        coreSize = int(input("Core Size: "))
 
         if coreSize < 0:
             print("The core size cannot be negative")
@@ -24,13 +24,11 @@ def main():
         if rings == 0 and coreSize == 0:
             break
 
-        print(f"Rings: {rings}")
-        print(f"Core Size: {coreSize}")
-        horizontalSpace = coreSize*space
-        verticalLines = ringString2*rings
+        print('\n')
+        horizontalSpace = coreSize * space
+        verticalLines = ringString2 * rings
 
-
-        #Alignment for upper rectangle
+        # Alignment for upper rectangle
         spaceCounter = rings
         while spaceCounter != 0:
             alignmentForUpDown += " "
@@ -41,9 +39,9 @@ def main():
         backSlash = coreString2
         ringsCounter = 1
         backSpaceCounter = 0
-        #Top part of Rectangle
+        # Top part of rectangle
         while counter != 0:
-            backSpace = backSpace * (backSpaceCounter+1)
+            backSpace = backSpace * (backSpaceCounter + 1)
             hyphin = ringString1 * coreSize
             print(f'{alignmentForUpDown}{backSpace}{fowardSlash}{hyphin}{backSlash}')
             backSpace = '\b'
@@ -53,14 +51,14 @@ def main():
             fowardSlash = coreString1 * (ringsCounter)
             backSlash = coreString2 * (ringsCounter)
 
-
+        # Print the empty core
         counter = coreSize
         while counter != 0:
             printCore = verticalLines + horizontalSpace + verticalLines
             print(printCore)
             counter -= 1
 
-        #Bottom part of rectangle
+        # Bottom part of rectangle
         counter = rings
         backSpaceCounter = 0
         fowardSlash = coreString1 * (rings)
@@ -68,18 +66,16 @@ def main():
         backSpace = '\b'
         space = ""
         while counter != 0:
-            backSpace = backSpace * (backSpaceCounter+1)
+            backSpace = backSpace * (backSpaceCounter + 1)
             hyphin = ringString1 * coreSize
             print(f'{backSpace}{space}{backSlash}{hyphin}{fowardSlash}')
             backSpace = '\b'
             space += " "
             backSpaceCounter += 1
-            fowardSlash = coreString1 * (counter-1)
-            backSlash = coreString2 * (counter-1)
+            fowardSlash = coreString1 * (counter - 1)
+            backSlash = coreString2 * (counter - 1)
             counter -= 1
-
-    print(f"Rings: {rings}")
-    print(f"Core Size: {coreSize}")
+        print('\n')
 
 
 if __name__ == '__main__':
