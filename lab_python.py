@@ -41,10 +41,16 @@ def main():
                 spaceCounter -= 1
 
         counter = rings
+        fowardSlash = coreString1
+        backSlash = coreString2
+        ringsCounter = 1
         while counter != 0:
             hyphin = ringString1 * coreSize
-            print(f'{alignmentForUpDown}{hyphin}')
+            print(f'{alignmentForUpDown}{fowardSlash}{hyphin}{backSlash}')
             counter -= 1
+            ringsCounter += 1
+            fowardSlash = coreString1 * (ringsCounter)
+            backSlash = coreString2 * (ringsCounter)
 
         counter = coreSize
         while counter != 0:
@@ -66,10 +72,18 @@ def main():
                 spaceCounter -= 1
 
         counter = rings
+        ringsCounter = rings
+        fowardSlash = coreString1 * (ringsCounter)
+        backSlash = coreString2 * (ringsCounter)
+        ringsCounter = rings
         while counter != 0:
             hyphin = ringString1 * coreSize
-            print(f'{alignmentForUpDown}{hyphin}')
+            print(f'{alignmentForUpDown}{backSlash}{hyphin}{fowardSlash}')
             counter -= 1
+            ringsCounter -= 1
+            fowardSlash = coreString1 * ringsCounter
+            backSlash = coreString2 * ringsCounter
+
         break
 
 
