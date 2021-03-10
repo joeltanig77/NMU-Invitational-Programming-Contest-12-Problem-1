@@ -6,12 +6,13 @@ def main():
     coreString2 = "\\"
     newLine = "\n"
     space = " "
+    backSpace = "\b"
     alignmentForUpDown = ""
-    counter = 0
+
     rings = int(input("Enter the number of rings you would like "))
 
     #Base Cases
-    if rings <= 0:
+    if rings < 0:
         print("The number of rings has to be greater than zero")
         exit(-1)
 
@@ -21,7 +22,7 @@ def main():
         print("The core size cannot be negative")
         exit(-1)
 
-    while rings != 0 and coreSize != 0:
+    while True:
         print(f"Rings: {rings}")
         print(f"Core Size: {coreSize}")
         horizontalSpace = coreSize*space
@@ -44,9 +45,20 @@ def main():
         fowardSlash = coreString1
         backSlash = coreString2
         ringsCounter = 1
+        backSpaceCounter = 0
+        #if its a even core.
         while counter != 0:
+            if coreSize % 2 == 0:
+                backSpace = backSpace*(backSpaceCounter) #Delete +1 for odd
+            #backSpaceTESTEVEN = backSpace*(backSpaceCounter)
+            else:
+                backSpace = backSpace * (backSpaceCounter+1)
             hyphin = ringString1 * coreSize
-            print(f'{alignmentForUpDown}{fowardSlash}{hyphin}{backSlash}')
+
+            print(f'{alignmentForUpDown}{backSpace}{fowardSlash}{hyphin}{backSlash}')
+            backSpace = '\b'
+
+            backSpaceCounter += 1
             counter -= 1
             ringsCounter += 1
             fowardSlash = coreString1 * (ringsCounter)
